@@ -12,7 +12,12 @@ const TabIcon = ({ icon, color, name, focused }) => {
         tintColor={color}
         className="w-6 h-6"
       />
-      <Text className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`} style={{color :color}}>{name}</Text>
+      <Text
+        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        style={{ color: color }}
+      >
+        {name}
+      </Text>
     </View>
   );
 };
@@ -20,17 +25,19 @@ const TabIcon = ({ icon, color, name, focused }) => {
 const TabsLayout = () => {
   return (
     <>
-      <Tabs screenOptions={{
-         tabBarShowLabel: false , 
-         tabBarActiveTintColor: "#FFA001",
-         tabBarInactiveTintColor: "#CDCDE0",
-         tabBarStyle:{
-                backgroundColor: "#161622",
-                borderTopWidth: 1,
-                borderTopColor:"#232533",
-                height: 84,
-         }
-         }} >
+      <Tabs
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: "#FFA001",
+          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarStyle: {
+            backgroundColor: "#161622",
+            borderTopWidth: 1,
+            borderTopColor: "#232533",
+            height: 84,
+          },
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
@@ -79,15 +86,15 @@ const TabsLayout = () => {
         />
 
         <Tabs.Screen
-          name="proflie"
+          name="profile"
           options={{
-            title: "Proflie",
+            title: "Profile",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.proflie}
+                icon={icons.profile}
                 color={color}
-                name="Proflie"
+                name="Profile"
                 focused={focused}
               />
             ),
