@@ -8,10 +8,10 @@ import { images } from "../constants";
 import { useGlobalContext } from "../context/GlobalProvider";
 
 export default function App() {
-  const { isLoading, isLoggedIn } = useGlobalContext();
+  const { loading, isLogged } = useGlobalContext();
 
-  if (!isLoading && isLoggedIn) return <Redirect href="/home" />;
-
+  if (!loading && isLogged) return <Redirect href="/home" />;
+  console.log(isLogged);
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
@@ -45,10 +45,22 @@ export default function App() {
             Where Creativity Meets Innovation: Embark on a Journey of Limitless
             Exploration with Aora
           </Text>
-
+          {isLogged ? (
+            <CustomButton
+              title="Go Home"
+              handlePress={() => router.push("/home")}
+              containerStyles="w-full mt-7"
+            />
+          ) : (
+            <CustomButton
+              title="Continue with Email"
+              handlePress={() => router.push("/sign-in")}
+              containerStyles="w-full mt-7"
+            />
+          )}
           <CustomButton
-            title="Continue with Email"
-            handlePress={() => router.push("/sign-in")}
+            title="Go Home"
+            handlePress={() => router.push("/home")}
             containerStyles="w-full mt-7"
           />
         </View>
