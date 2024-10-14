@@ -37,3 +37,4 @@ const SearchInput = ({ initialQuery }) => {
 };
 
 export default SearchInput;
+ 
